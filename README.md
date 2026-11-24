@@ -258,3 +258,120 @@ npm run build
 ## Autor
 
 Yunior Bestard Aroche — Desarrollo de Aplicaciones Empresariales.
+
+
+---
+
+## 9. Semana 14 · Componentes implementados
+
+La solicitud recorre siempre el mismo camino:
+
+```text
+Usuario → Vista React (useEffect) → Axios api.get / api.post
+        → ruta registrada por DefaultRouter → ViewSet (controlador)
+        → Serializer (valida y convierte JSON) → Modelo → SQLite
+        → Response (JSON + código HTTP) → React vuelve a dibujar
+```
+
+| Componente | Tecnología del curso | Responsabilidad en AgroTrace |
+|---|---|---|
+| Base de datos | SQLite + ORM de Django | Persiste categorías, productos, pedidos, pagos, lotes/ordenes y sus relaciones con `DecimalField` para el dinero. |
+| Rutas | `DefaultRouter` de DRF bajo `/api/` | Publica listado, detalle, creación, edición, borrado y acciones `crear`/`crear_orden`. |
+| Controladores | `ModelViewSet` (`ProductoViewSet`, `PedidoViewSet`, `ProductoAgroViewSet`, `OrdenDespachoViewSet`) | Atienden la petición, abren `transaction.atomic`, leen precios de la BD y devuelven el código de estado. |
+| Vistas | React + Vite + Axios | `ProductosPage`, `ProductosAgroPage` y `ProductoAgroDetallePage`: `useEffect`, estados de carga/error, `map()` con `key` y navegación `/productos-agro/:id`. |
+| Módulo de pago | Servicio externo de pasarela (implementación real prevista para S16); `Pago`/`PagoDespacho` registran la operación simulada en S14 | Se invoca después de validar stock y crear la orden; tokeniza la tarjeta y confirma el cobro sin guardar datos sensibles en nuestro servidor. |
+
+### Equivalencias cafetería → AgroTrace
+
+| Cafetería (clase) | AgroTrace (proyecto integrador) |
+|---|---|
+| `Categoria` + `Producto` (`PROTECT`) | `ProductorAgro`, `ClienteAgro`, `ProductoAgro` (`stock_kg`, `precio_kg`) |
+| `ProductoSerializer.validate_precio` | `ProductoAgroSerializer.validate_precio_kg` |
+| `ProductoViewSet` + `/api/productos/` | `ProductoAgroViewSet` + `/api/productos-agro/` |
+| `Pedido` + `DetallePedido` + `Pago` | `OrdenDespacho` + `DetalleOrdenDespacho` + `PagoDespacho` |
+| `crear_pedido` con `F('stock')` | `crear_orden` con `F('stock_kg')` |
+| `ProductosPage.jsx` (`GET`) | `ProductosAgroPage.jsx` + `ProductoAgroDetallePage.jsx` |
+
+### Rutas API de la Semana 14
+
+| Método | Ruta | Acción |
+|---|---|---|
+| GET / POST | `/api/productos/` | Listar/buscar (`?search=`) y crear productos de la cafetería |
+| GET / POST | `/api/pedidos/` | Listar y crear pedidos (CRUD del ViewSet) |
+| POST | `/api/pedidos/crear/` | Compra atómica: valida stock, descuenta con `F()`, calcula total y crea `Pago` → **201** / **400** |
+| GET / POST | `/api/productos-agro/` | Listar/buscar y crear la entidad principal de AgroTrace |
+| GET | `/api/productos-agro/{id}/` | Detalle de un producto AgroTrace |
+| GET / POST | `/api/ordenes-despacho/` | Listar y crear cabeceras de despacho |
+| POST | `/api/ordenes-despacho/crear/` | Orden atómica AgroTrace con precio de BD, `F('stock_kg')` y total en Django → **201** / **400** |
+
+Las cinco rutas que `DefaultRouter` genera para cada ViewSet son:
+`GET /api/<recurso>/` (list), `POST /api/<recurso>/` (create), `GET /api/<recurso>/{id}/` (retrieve), `PUT/PATCH /api/<recurso>/{id}/` (update) y `DELETE /api/<recurso>/{id}/` (destroy).
+
+---
+
+## 10. Módulo de pago electrónico de AgroTrace (Ejercicio 13)
+
+**Momento de invocación.** El pago se invoca *después* de que Django valide el
+carrito, confirme el stock dentro de `transaction.atomic` y persista la orden.
+Nunca se cobra antes de tener un pedido guardado: eso evitaría cobros sin orden
+y permitiría reintentos con la misma referencia. En la Semana 14 el cobro está
+**simulado** (`Pago` y `PagoDespacho` con `estado='PAGADO'` y una referencia
+`SIM-*` / `AGRO-*`); la integración con la pasarela real se hará en la Semana 16.
+
+**Datos enviados a la pasarela (S16):** `monto` como `Decimal` convertido a
+minor units (céntimos), `moneda` (`PEN`), `descripcion`, `order_id` interno,
+`url_confirmacion` (webhook) y un `token` de tarjeta generado por el SDK del
+navegador. **No se envían** ni se guardan PAN, CVV ni contraseñas.
+
+**Estados del pedido / orden:** `PENDIENTE` (orden creada, esperando cobro),
+`PAGADO` (confirmación recibida), `ENTREGADO` (despacho completado) y
+`CANCELADO` (anulación o reversa). El pago simulado usa `PENDIENTE`, `PAGADO` y
+`FALLIDO`; la transición la hace Django, nunca el navegador.
+
+**Flujo:** Cliente → React (token) → Django (crea orden y llama a la pasarela) →
+Pasarela (autoriza y notifica por webhook) → Django (verifica firma, actualiza
+`PAGADO` y registra el pago) → Pedido/Orden. Si la autorización falla, la
+transacción se revierte y el stock se conserva.
+
+**PCI-DSS: datos que NUNCA se guardan en nuestra base de datos:** número completo
+de tarjeta (PAN), CVV/CVC, fecha de expiración sin tokenizar, contraseña del
+titular, claves secretas de la pasarela ni respuetas crudas con datos de tarjeta.
+Sólo se guardan `referencia`, `monto`, `estado`, `fecha` y, si hace falta para
+soporte, los últimos cuatro dígitos **tokenizados** que devuelve la pasarela.
+
+---
+
+## 11. Comandos y verificación (Ejercicio 14)
+
+```powershell
+# Desde la raíz del repositorio
+python -m venv .venv
+.\.venv\Scripts\python.exe -m pip install -r requirements.txt python-docx
+.\.venv\Scripts\python.exe manage.py makemigrations
+.\.venv\Scripts\python.exe manage.py migrate
+.\.venv\Scripts\python.exe manage.py seed_semana14
+.\.venv\Scripts\python.exe manage.py verificar_semana14
+.\.venv\Scripts\python.exe manage.py check
+.\.venv\Scripts\python.exe manage.py test agrotrace.tests_semana14 -v 2
+.\.venv\Scripts\python.exe manage.py runserver 127.0.0.1:8000
+```
+
+```powershell
+# En otra terminal, desde frontend/
+npm install
+npm run dev       # http://localhost:5173
+npm run lint      # ESLint, sin errores
+npm run build     # Vite, dist/ no versionado
+```
+
+- API navegable: <http://127.0.0.1:8000/api/>
+- Cafetería (React): <http://localhost:5173/productos>
+- Listado AgroTrace (React): <http://localhost:5173/productos-agro>
+- Detalle AgroTrace (React): <http://localhost:5173/productos-agro/1>
+
+`git ls-files` confirma que `.venv/`, `node_modules/` y `dist/` no se versionan.
+Los commits de la Semana 14 usan únicamente las identidades
+`carlosjunco2025 <carlos.junco@tecsup.edu.pe>` y
+`mtl-124 <gael.lajara@tecsup.edu.pe>`.
+
+Repositorio: <https://github.com/carlosjunco2025/lab10_Agrotrace.git>

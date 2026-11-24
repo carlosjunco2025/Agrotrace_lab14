@@ -372,6 +372,6 @@ npm run build     # Vite, dist/ no versionado
 `git ls-files` confirma que `.venv/`, `node_modules/` y `dist/` no se versionan.
 Los commits de la Semana 14 usan únicamente las identidades
 `carlosjunco2025 <carlos.junco@tecsup.edu.pe>` y
-`mtl-124 <gael.lajara@tecsup.edu.pe>`.
+`mtl-124 <matteolajara@gmail.com>`.
 
 Repositorio: <https://github.com/carlosjunco2025/lab10_Agrotrace.git>

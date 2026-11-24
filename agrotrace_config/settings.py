@@ -17,7 +17,17 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'rest_framework',
+    # Semana 8-12: app base del proyecto integrador (nucleo y API actual).
     'agrotrace',
+    # Semana 13 - Parte 1: estructura de la cafeteria de practica.
+    'catalogo.apps.CatalogoConfig',
+    'pedidos.apps.PedidosConfig',
+    # Semana 13 - Parte 2: apps por dominio de AgroTrace.
+    # Los modelos completos de negocio se escriben en la Semana 14.
+    'productores.apps.ProductoresConfig',
+    'inventario.apps.InventarioConfig',
+    'comercializacion.apps.ComercializacionConfig',
+    'trazabilidad.apps.TrazabilidadConfig',
 ]
 
 MIDDLEWARE = [

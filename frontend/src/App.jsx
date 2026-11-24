@@ -1,68 +1,110 @@
-import { useState } from 'react'
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom'
 import './App.css'
+import './pages/pages.css'
 import ListaPractica from './practica/ListaPractica.jsx'
 import PanelLotes from './components/PanelLotes.jsx'
+import ProductosPage from './pages/ProductosPage.jsx'
+import DashboardPage from './pages/DashboardPage.jsx'
+import ProductoresPage from './pages/ProductoresPage.jsx'
+import LotesPage from './pages/LotesPage.jsx'
+import PedidosPage from './pages/PedidosPage.jsx'
+import TrazabilidadPage from './pages/TrazabilidadPage.jsx'
 
-const PARTES = [
+const ENLACES = [
+  { grupo: 'General', rutas: [{ to: '/', texto: 'Inicio' }] },
   {
-    id: 'practica',
-    indice: '01',
-    etiqueta: 'Parte 1 · Lista',
+    grupo: 'Parte 1 · práctica',
+    rutas: [
+      { to: '/practica', texto: 'Lista' },
+      { to: '/productos', texto: 'Productos' },
+    ],
   },
   {
-    id: 'panel',
-    indice: '02',
-    etiqueta: 'Parte 2 · Panel',
+    grupo: 'Parte 2 · AgroTrace',
+    rutas: [
+      { to: '/dashboard', texto: 'Dashboard' },
+      { to: '/productores', texto: 'Productores' },
+      { to: '/lotes', texto: 'Lotes' },
+      { to: '/pedidos', texto: 'Pedidos' },
+      { to: '/trazabilidad', texto: 'Trazabilidad' },
+    ],
+  },
+  {
+    grupo: 'S12',
+    rutas: [{ to: '/panel', texto: 'Panel CRUD' }],
   },
 ]
 
-function App() {
-  const [parte, setParte] = useState('practica')
+function enlace({ isActive }) {
+  return `app-tab${isActive ? ' app-tab--active' : ''}`
+}
 
+function SinRuta() {
   return (
-    <div className="app-shell">
-      <nav className="app-nav" aria-label="Navegación del laboratorio">
-        <div className="app-nav__inner">
-          <div className="brand">
-            <span className="brand-mark" aria-hidden="true">
-              AT
-            </span>
-            <div>
-              <strong>AgroTrace</strong>
-              <span>Semana 12 · React + Axios + Django REST</span>
+    <section className="module sin-ruta">
+      <h1>Ruta no encontrada</h1>
+      <p>Usa el menú superior para elegir un módulo del laboratorio.</p>
+    </section>
+  )
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <div className="app-shell">
+        <nav className="app-nav" aria-label="Navegación del laboratorio">
+          <div className="app-nav__inner">
+            <div className="brand">
+              <span className="brand-mark" aria-hidden="true">
+                AT
+              </span>
+              <div>
+                <strong>AgroTrace</strong>
+                <span>Semana 13 · Arquitectura y estructura inicial</span>
+              </div>
+            </div>
+
+            <div className="app-tabs" role="group" aria-label="Rutas de la aplicación">
+              {ENLACES.map((grupo) => (
+                <div className="nav-grupo" key={grupo.grupo}>
+                  <span className="nav-grupo__etiqueta">{grupo.grupo}</span>
+                  {grupo.rutas.map((ruta) => (
+                    <NavLink
+                      key={ruta.to}
+                      to={ruta.to}
+                      end={ruta.to === '/'}
+                      className={enlace}
+                    >
+                      {ruta.texto}
+                    </NavLink>
+                  ))}
+                </div>
+              ))}
             </div>
           </div>
+        </nav>
 
-          <div className="app-tabs" role="group" aria-label="Partes del laboratorio">
-            {PARTES.map((opcion) => (
-              <button
-                key={opcion.id}
-                type="button"
-                className={`app-tab${
-                  parte === opcion.id ? ' app-tab--active' : ''
-                }`}
-                aria-pressed={parte === opcion.id}
-                onClick={() => setParte(opcion.id)}
-              >
-                <span className="tab-index" aria-hidden="true">
-                  {opcion.indice}
-                </span>
-                {opcion.etiqueta}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
+        <main className="app-main">
+          <Routes>
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/dashboard" element={<DashboardPage />} />
+            <Route path="/practica" element={<ListaPractica />} />
+            <Route path="/productos" element={<ProductosPage />} />
+            <Route path="/panel" element={<PanelLotes />} />
+            <Route path="/productores" element={<ProductoresPage />} />
+            <Route path="/lotes" element={<LotesPage />} />
+            <Route path="/pedidos" element={<PedidosPage />} />
+            <Route path="/trazabilidad" element={<TrazabilidadPage />} />
+            <Route path="*" element={<SinRuta />} />
+          </Routes>
+        </main>
 
-      <main className="app-main">
-        {parte === 'practica' ? <ListaPractica /> : <PanelLotes />}
-      </main>
-
-      <footer className="app-footer">
-        <span>AgroTrace · Desarrollo de Aplicaciones Empresariales</span>
-        <span>Laboratorio 12 · Consumo de API REST con Axios y CORS</span>
-      </footer>
-    </div>
+        <footer className="app-footer">
+          <span>AgroTrace · Desarrollo de Aplicaciones Empresariales</span>
+          <span>Laboratorio 13 · Diseño de arquitectura y estructura inicial</span>
+        </footer>
+      </div>
+    </BrowserRouter>
   )
 }
 

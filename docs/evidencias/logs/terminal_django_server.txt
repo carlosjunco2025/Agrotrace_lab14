@@ -1,0 +1,113 @@
+python.exe : Not Found: /health
+En línea: 1 Carácter: 32
++ ... NG='utf-8'; & '.\.venv\Scripts\python.exe' manage.py runserver 127.0. ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Not Found: /health:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[24/Nov/2026 15:09:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:09:35] "GET /health HTTP/1.1" 404 3705
+[24/Nov/2026 15:09:36] "GET /api/ HTTP/1.1" 200 844
+[24/Nov/2026 15:09:36] "GET /api/productos/ HTTP/1.1" 200 608
+[24/Nov/2026 15:09:36] "GET /api/productos-agro/ HTTP/1.1" 200 835
+[24/Nov/2026 15:09:36] "GET /api/clientes/ HTTP/1.1" 200 214
+[24/Nov/2026 15:09:36] "GET /api/clientes-agro/ HTTP/1.1" 200 202
+[24/Nov/2026 15:09:36] "POST /api/pedidos/crear/ HTTP/1.1" 201 405
+[24/Nov/2026 15:09:36] "GET /api/productos/1/ HTTP/1.1" 200 120
+Bad Request: /api/pedidos/crear/
+[24/Nov/2026 15:09:36] "POST /api/pedidos/crear/ HTTP/1.1" 400 81
+[24/Nov/2026 15:09:36] "GET /api/productos/1/ HTTP/1.1" 200 120
+[24/Nov/2026 15:09:36] "POST /api/ordenes-despacho/crear/ HTTP/1.1" 201 430
+Bad Request: /api/ordenes-despacho/crear/
+[24/Nov/2026 15:09:36] "POST /api/ordenes-despacho/crear/ HTTP/1.1" 400 101
+[24/Nov/2026 15:09:36] "GET /api/productos-agro/1/ HTTP/1.1" 200 173
+[24/Nov/2026 15:09:55] "GET /api/ HTTP/1.1" 200 7389
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[24/Nov/2026 15:09:55] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+Not Found: /favicon.ico
+[24/Nov/2026 15:09:55] "GET /favicon.ico HTTP/1.1" 404 3720
+[24/Nov/2026 15:09:56] "GET /api/productos/ HTTP/1.1" 200 12541
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[24/Nov/2026 15:09:56] "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[24/Nov/2026 15:09:57] "GET /api/productos-agro/ HTTP/1.1" 200 13369
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+[24/Nov/2026 15:09:57] "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+[24/Nov/2026 15:09:58] "GET /api/productos/ HTTP/1.1" 200 608
+[24/Nov/2026 15:09:58] "GET /api/productos/ HTTP/1.1" 200 608
+[24/Nov/2026 15:10:00] "GET /api/productos-agro/ HTTP/1.1" 200 835
+[24/Nov/2026 15:10:00] "GET /api/productos-agro/ HTTP/1.1" 200 835
+[24/Nov/2026 15:10:01] "GET /api/productos-agro/1/ HTTP/1.1" 200 173
+[24/Nov/2026 15:10:01] "GET /api/productos-agro/1/ HTTP/1.1" 200 173
+Not Found: /health
+[24/Nov/2026 15:10:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:10:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:11:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:11:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:12:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:12:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:13:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:13:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:14:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:14:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:15:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:15:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:16:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:16:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:17:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:17:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:18:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:18:35] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:19:05] "GET /health HTTP/1.1" 404 3705
+Not Found: /health
+[24/Nov/2026 15:19:35] "GET /health HTTP/1.1" 404 3705

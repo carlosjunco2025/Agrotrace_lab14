@@ -1,0 +1,19 @@
+== Categor├¡as (Ejercicio 3) ==
+  1: Bebidas
+  2: Reposter├¡a
+== Producto.objects.all() ==
+  SQL equivalente: SELECT "catalogo_producto"."id", "catalogo_producto"."nombre", "catalogo_producto"."precio", "catalogo_producto"."stock", "catalogo_producto"."activo", "catalogo_producto"."categoria_id" FROM "catalogo_producto" ORDER BY "catalogo_producto"."nombre" ASC
+  1: Caf├® de origen | S/ 18.50 | stock 40 | Bebidas
+  2: Capuchino | S/ 14.00 | stock 25 | Bebidas
+  4: Croissant de almendra | S/ 8.50 | stock 30 | Reposter├¡a
+  3: Jugo de naranja | S/ 10.50 | stock 15 | Bebidas
+  5: Pan de yuca | S/ 6.00 | stock 20 | Reposter├¡a
+== ProductoAgro (equivalente AgroTrace) ==
+  AG-001: Caf├® ar├íbica lavado | 1200.00 kg | S/ 18.50/kg
+  AG-002: Caf├® natural de altura | 800.00 kg | S/ 15.75/kg
+  AG-003: Cacao fermentado | 500.00 kg | S/ 22.40/kg
+  AG-004: Banano org├ínico | 2000.00 kg | S/ 3.20/kg
+  AG-005: Miel de abeja pura | 300.00 kg | S/ 28.00/kg
+== Prueba de on_delete=PROTECT (Ejercicio 4) ==
+ProtectedError: no se puede borrar la categor├¡a "Bebidas" porque tiene productos asociados.
+  Detalle: Cannot delete some instances of model 'Categoria' because they are referenced through protected foreign keys: 'Producto.categoria'.

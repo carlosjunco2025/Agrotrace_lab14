@@ -1,0 +1,6 @@
+api_root: 2 eventos de red
+api_productos: 1 eventos de red
+api_productos_agro: 1 eventos de red
+react_cafeteria: 2 eventos de red
+react_agro_listado: 2 eventos de red
+react_agro_detalle: 2 eventos de red

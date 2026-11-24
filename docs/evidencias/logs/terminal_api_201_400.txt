@@ -1,0 +1,141 @@
+== GET /api/ (API navegable) ==
+HTTP 200
+[
+  "fundos",
+  "evaluaciones",
+  "evaluaciones-detalladas",
+  "lotes",
+  "lotes-detallados",
+  "categorias",
+  "productos",
+  "clientes",
+  "pedidos",
+  "pagos",
+  "productores-agro",
+  "clientes-agro",
+  "productos-agro",
+  "ordenes-despacho",
+  "pagos-despacho"
+]
+
+== GET /api/productos/ ==
+HTTP 200
+[
+  {
+    "id": 1,
+    "nombre": "Caf├® de origen",
+    "precio": "18.50",
+    "stock": 40,
+    "activo": true,
+    "categoria": 1,
+    "categoria_nombre": "Bebidas"
+  },
+  {
+    "id": 2,
+    "nombre": "Capuchino",
+    "precio": "14.00",
+    "stock": 25,
+    "activo": true,
+    "categoria": 1,
+    "categoria_nombre": "Bebidas"
+  }
+]
+
+== GET /api/productos-agro/ ==
+HTTP 200
+[
+  {
+    "id": 1,
+    "codigo": "AG-001",
+    "nombre": "Caf├® ar├íbica lavado",
+    "stock_kg": "1200.00",
+    "precio_kg": "18.50",
+    "activo": true,
+    "productor": 1,
+    "productor_nombre": "Asociaci├│n Valle Norte"
+  },
+  {
+    "id": 2,
+    "codigo": "AG-002",
+    "nombre": "Caf├® natural de altura",
+    "stock_kg": "800.00",
+    "precio_kg": "15.75",
+    "activo": true,
+    "productor": 1,
+    "productor_nombre": "Asociaci├│n Valle Norte"
+  }
+]
+
+== POST /api/pedidos/crear/ (stock suficiente) ==
+HTTP 201
+{
+  "id": 1,
+  "cliente": 1,
+  "cliente_nombre": "Compa├▒├¡a Andes SAC",
+  "estado": "PAGADO",
+  "total": "37.00",
+  "fecha_creacion": "2026-11-24T15:09:36.142006-05:00",
+  "detalles": [
+    {
+      "id": 1,
+      "producto": 1,
+      "producto_nombre": "Caf├® de origen",
+      "cantidad": 2,
+      "precio_unitario": "18.50",
+      "subtotal": "37.00"
+    }
+  ],
+  "pago": {
+    "id": 1,
+    "monto": "37.00",
+    "estado": "PAGADO",
+    "referencia": "SIM-5AEC333A07D7",
+    "fecha_pago": "2026-11-24T15:09:36.146769-05:00"
+  }
+}
+
+Stock despu├®s del pedido exitoso: 38 (antes: 40)
+
+== POST /api/pedidos/crear/ (stock insuficiente) ==
+HTTP 400
+{
+  "items": "Stock insuficiente para Caf├® de origen: se solicitan 99999 y hay 38."
+}
+
+Stock despu├®s del fallo: 38 (debe seguir en 38)
+
+== POST /api/ordenes-despacho/crear/ (stock suficiente) ==
+HTTP 201
+{
+  "id": 1,
+  "cliente": 1,
+  "cliente_nombre": "Exportadora del Sur SAC",
+  "estado": "PAGADO",
+  "total": "194.25",
+  "fecha_creacion": "2026-11-24T15:09:36.206495-05:00",
+  "detalles": [
+    {
+      "id": 1,
+      "producto": 1,
+      "producto_nombre": "Caf├® ar├íbica lavado",
+      "cantidad_kg": "10.50",
+      "precio_unitario_kg": "18.50",
+      "subtotal": "194.25"
+    }
+  ],
+  "pago": {
+    "id": 1,
+    "monto": "194.25",
+    "estado": "PAGADO",
+    "referencia": "AGRO-653825C2D704",
+    "fecha_pago": "2026-11-24T15:09:36.210504-05:00"
+  }
+}
+
+== POST /api/ordenes-despacho/crear/ (stock insuficiente) ==
+HTTP 400
+{
+  "items": "Stock insuficiente para Caf├® ar├íbica lavado: se solicitan 99999.00 kg y hay 1189.50 kg."
+}
+
+Stock AgroTrace final: 1189.50 (inicial 1200.00, menos 10.50)

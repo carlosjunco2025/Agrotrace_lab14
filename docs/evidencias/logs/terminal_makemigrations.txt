@@ -1,0 +1,19 @@
+Migrations for 'catalogo':
+  catalogo\migrations\0001_initial.py
+    + Create model Categoria
+    + Create model Producto
+Migrations for 'comercializacion':
+  comercializacion\migrations\0001_initial.py
+    + Create model ClienteAgro
+    + Create model ProductoAgro
+    + Create model ProductorAgro
+    + Create model OrdenDespacho
+    + Create model PagoDespacho
+    + Create model DetalleOrdenDespacho
+    + Add field productor to productoagro
+Migrations for 'pedidos':
+  pedidos\migrations\0001_initial.py
+    + Create model Cliente
+    + Create model Pedido
+    + Create model Pago
+    + Create model DetallePedido

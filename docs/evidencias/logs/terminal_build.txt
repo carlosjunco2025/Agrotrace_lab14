@@ -1,0 +1,13 @@
+
+> agrotrace-frontend@1.0.0 build
+> vite build
+
+[36mvite v6.4.5 [32mbuilding for production...[36m[39m
+transforming...
+[32mÔ£ô[39m 120 modules transformed.
+rendering chunks...
+computing gzip size...
+[2mdist/[22m[32mindex.html                 [39m[1m[2m  0.68 kB[22m[1m[22m[2m Ôöé gzip:   0.42 kB[22m
+[2mdist/[22m[35massets/index-Bg_iUjh5.css  [39m[1m[2m 16.33 kB[22m[1m[22m[2m Ôöé gzip:   4.18 kB[22m
+[2mdist/[22m[36massets/index-DvRHz2-i.js   [39m[1m[2m362.64 kB[22m[1m[22m[2m Ôöé gzip: 115.34 kB[22m
+[32mÔ£ô built in 651ms[39m

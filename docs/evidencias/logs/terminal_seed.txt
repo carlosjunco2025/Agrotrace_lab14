@@ -1,0 +1,15 @@
+Producto creado: Caf├® de origen
+Producto creado: Capuchino
+Producto creado: Jugo de naranja
+Producto creado: Croissant de almendra
+Producto creado: Pan de yuca
+Cliente de cafeter├¡a creado: Compa├▒├¡a Andes SAC
+Cliente de cafeter├¡a creado: Distribuidora Costa Verde
+Cliente AgroTrace creado: Exportadora del Sur SAC
+Cliente AgroTrace creado: Molinos Uni├│n
+Producto AgroTrace creado: AG-001 - Caf├® ar├íbica lavado
+Producto AgroTrace creado: AG-002 - Caf├® natural de altura
+Producto AgroTrace creado: AG-003 - Cacao fermentado
+Producto AgroTrace creado: AG-004 - Banano org├ínico
+Producto AgroTrace creado: AG-005 - Miel de abeja pura
+Semilla S14 lista: 2 categor├¡as, 5 productos de cafeter├¡a, 5 productos AgroTrace.

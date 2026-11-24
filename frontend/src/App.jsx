@@ -4,6 +4,8 @@ import './pages/pages.css'
 import ListaPractica from './practica/ListaPractica.jsx'
 import PanelLotes from './components/PanelLotes.jsx'
 import ProductosPage from './pages/ProductosPage.jsx'
+import ProductosAgroPage from './pages/ProductosAgroPage.jsx'
+import ProductoAgroDetallePage from './pages/ProductoAgroDetallePage.jsx'
 import DashboardPage from './pages/DashboardPage.jsx'
 import ProductoresPage from './pages/ProductoresPage.jsx'
 import LotesPage from './pages/LotesPage.jsx'
@@ -25,6 +27,7 @@ const ENLACES = [
       { to: '/dashboard', texto: 'Dashboard' },
       { to: '/productores', texto: 'Productores' },
       { to: '/lotes', texto: 'Lotes' },
+      { to: '/productos-agro', texto: 'Catálogo Agro' },
       { to: '/pedidos', texto: 'Pedidos' },
       { to: '/trazabilidad', texto: 'Trazabilidad' },
     ],
@@ -60,7 +63,7 @@ function App() {
               </span>
               <div>
                 <strong>AgroTrace</strong>
-                <span>Semana 13 · Arquitectura y estructura inicial</span>
+                <span>Semana 14 · Modelos, API transaccional y vistas React</span>
               </div>
             </div>
 
@@ -90,6 +93,11 @@ function App() {
             <Route path="/dashboard" element={<DashboardPage />} />
             <Route path="/practica" element={<ListaPractica />} />
             <Route path="/productos" element={<ProductosPage />} />
+            <Route path="/productos-agro" element={<ProductosAgroPage />} />
+            <Route
+              path="/productos-agro/:id"
+              element={<ProductoAgroDetallePage />}
+            />
             <Route path="/panel" element={<PanelLotes />} />
             <Route path="/productores" element={<ProductoresPage />} />
             <Route path="/lotes" element={<LotesPage />} />
@@ -101,7 +109,7 @@ function App() {
 
         <footer className="app-footer">
           <span>AgroTrace · Desarrollo de Aplicaciones Empresariales</span>
-          <span>Laboratorio 13 · Diseño de arquitectura y estructura inicial</span>
+          <span>Laboratorio 14 · Componentes transaccionales y pago</span>
         </footer>
       </div>
     </BrowserRouter>

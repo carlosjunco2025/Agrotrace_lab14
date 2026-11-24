@@ -9,7 +9,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/catalogo/', include('catalogo.urls')),
-    path('api/pedidos/', include('pedidos.urls')),
+    # El CRUD real de pedidos lo publica el DefaultRouter en /api/pedidos/.
+    # Esta ruta de metadata de la Semana 13 se conserva en un subprefijo.
+    path('api/pedidos/modulo/', include('pedidos.urls')),
     path('api/productores/', include('productores.urls')),
     path('api/inventario/', include('inventario.urls')),
     path('api/comercializacion/', include('comercializacion.urls')),

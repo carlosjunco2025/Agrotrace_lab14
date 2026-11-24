@@ -1,6 +1,16 @@
 from django.urls import include, path
 from rest_framework.routers import DefaultRouter
 
+from catalogo.api_views import CategoriaViewSet, ProductoViewSet
+from comercializacion.api_views import (
+    ClienteAgroViewSet,
+    OrdenDespachoViewSet,
+    PagoDespachoViewSet,
+    ProductoAgroViewSet,
+    ProductorAgroViewSet,
+)
+from pedidos.api_views import ClienteViewSet, PagoViewSet, PedidoViewSet
+
 from .api_views import (
     EvaluacionCalidadViewSet,
     EvaluacionCalidadDetalladaViewSet,
@@ -30,6 +40,24 @@ router.register(
     LoteDetalladoViewSet,
     basename='lote-detallado-api',
 )
+
+# Semana 14 - Parte 1: cafetería (Ejercicios 2 a 8).
+router.register(r'categorias', CategoriaViewSet, basename='categoria')
+router.register(r'productos', ProductoViewSet, basename='producto')
+router.register(r'clientes', ClienteViewSet, basename='cliente')
+router.register(r'pedidos', PedidoViewSet, basename='pedido')
+router.register(r'pagos', PagoViewSet, basename='pago')
+
+# Semana 14 - Parte 2: AgroTrace (Ejercicios 9 a 12).
+router.register(r'productores-agro', ProductorAgroViewSet, basename='productor-agro')
+router.register(r'clientes-agro', ClienteAgroViewSet, basename='cliente-agro')
+router.register(r'productos-agro', ProductoAgroViewSet, basename='producto-agro')
+router.register(
+    r'ordenes-despacho',
+    OrdenDespachoViewSet,
+    basename='orden-despacho',
+)
+router.register(r'pagos-despacho', PagoDespachoViewSet, basename='pago-despacho')
 
 urlpatterns = [
     # Fundos

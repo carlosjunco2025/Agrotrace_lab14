@@ -1,16 +1,16 @@
 == git log (autores solicitados) ==
-9cae8bb | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs(readme): corregir email de mtl-124 en las identidades
-4224dd8 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs: guia Semana 14 completada con respuestas, capturas y conclusiones
-3725d88 | mtl-124 <matteolajara@gmail.com> | docs(evidencias): capturas de migraciones, API, navegador y verificaciones
-11d4927 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs(readme): modulo de pago, componentes, comandos y rutas S14
-b92d944 | mtl-124 <matteolajara@gmail.com> | feat(frontend): vistas React de cafeteria, listado y detalle AgroTrace
-4a0cccb | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | test(api): cobertura de stock, ProtectedError y rollback atomico
-e3725a7 | mtl-124 <matteolajara@gmail.com> | feat(api): registrar viewsets en DefaultRouter y sembrar datos de prueba
-4fc21a6 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(comercializacion): entidades AgroTrace, serializer y orden transaccional
-3d37655 | mtl-124 <matteolajara@gmail.com> | feat(pedidos): modelo transaccional, pago simulado y rutas API
-3e41ebf | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(catalogo): modelos Categoria/Producto, serializer, viewset y migracion
-30a09ea | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | chore: dejar de versionar bytecode compilado de Python
-9625819 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat: Semana 13 - Arquitectura e-commerce, apps Django, estructura React y mapa de rutas AgroTrace
+d6750a9 | mtl-124 <matteolajara@gmail.com> | docs: regenerar evidencia y Word con email corregido de mtl-124
+5b7a4b1 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs(readme): corregir email de mtl-124 en las identidades
+c950634 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs: guia Semana 14 completada con respuestas, capturas y conclusiones
+457e248 | mtl-124 <matteolajara@gmail.com> | docs(evidencias): capturas de migraciones, API, navegador y verificaciones
+3045797 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs(readme): modulo de pago, componentes, comandos y rutas S14
+94984bc | mtl-124 <matteolajara@gmail.com> | feat(frontend): vistas React de cafeteria, listado y detalle AgroTrace
+18ba38d | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | test(api): cobertura de stock, ProtectedError y rollback atomico
+e463826 | mtl-124 <matteolajara@gmail.com> | feat(api): registrar viewsets en DefaultRouter y sembrar datos de prueba
+84a7f9c | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(comercializacion): entidades AgroTrace, serializer y orden transaccional
+b510d04 | mtl-124 <matteolajara@gmail.com> | feat(pedidos): modelo transaccional, pago simulado y rutas API
+85c593c | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(catalogo): modelos Categoria/Producto, serializer, viewset y migracion
+25679e4 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | chore: dejar de versionar bytecode compilado de Python
 
 == git ls-files: artefactos prohibidos ==
 Sin artefactos versionados (node_modules, dist, .venv, .pyc).
@@ -19,16 +19,16 @@ Sin artefactos versionados (node_modules, dist, .venv, .pyc).
 (limpio)
 
 == git ls-remote origin refs/heads/main (push confirmado) ==
-9cae8bba7aaaf6a359612c0ae35ce72b15ef80aa	refs/heads/main
+d6750a97f1d3fe7c0de0acfd86c687dd26c22568	refs/heads/main
 
-== git push --force-with-lease origin HEAD (historial corregido) ==
+== git push --force origin HEAD (historial corregido) ==
 git : To https://github.com/carlosjunco2025/lab10_Agrotrace.git
 
 En línea: 1 Carácter: 1
 
-+ git push --force-with-lease origin HEAD 2>&1 | Tee-Object -FilePath ' ...
++ git push --force origin HEAD 2>&1 | Tee-Object -FilePath 'C:\Users\Te ...
 
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     + CategoryInfo          : NotSpecified: (To https://gith...0_Agrotrace.git:String) [], RemoteException
 
@@ -36,4 +36,4 @@ En línea: 1 Carácter: 1
 
  
 
- + d365020...9cae8bb HEAD -> main (forced update)
+ + c49a9ce...d6750a9 HEAD -> main (forced update)

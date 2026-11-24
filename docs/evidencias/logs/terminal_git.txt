@@ -1,0 +1,42 @@
+== git log (autores solicitados) ==
+310a6b1 | mtl-124 <gael.lajara@tecsup.edu.pe> | docs(evidencias): capturas de migraciones, API, navegador y verificaciones
+f29a30f | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | docs(readme): modulo de pago, componentes, comandos y rutas S14
+fe697de | mtl-124 <gael.lajara@tecsup.edu.pe> | feat(frontend): vistas React de cafeteria, listado y detalle AgroTrace
+989ae4c | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | test(api): cobertura de stock, ProtectedError y rollback atomico
+3bc5637 | mtl-124 <gael.lajara@tecsup.edu.pe> | feat(api): registrar viewsets en DefaultRouter y sembrar datos de prueba
+1450540 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(comercializacion): entidades AgroTrace, serializer y orden transaccional
+1221cad | mtl-124 <gael.lajara@tecsup.edu.pe> | feat(pedidos): modelo transaccional, pago simulado y rutas API
+3e41ebf | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat(catalogo): modelos Categoria/Producto, serializer, viewset y migracion
+30a09ea | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | chore: dejar de versionar bytecode compilado de Python
+9625819 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat: Semana 13 - Arquitectura e-commerce, apps Django, estructura React y mapa de rutas AgroTrace
+9867ad0 | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | feat: Implementar Semana 12 - Integracion Full Stack React Axios con Django REST API y CORS
+8c780ec | carlosjunco2025 <carlos.junco@tecsup.edu.pe> | Laboratorio 11 completado: practica de carrito y panel administrativo AgroTrace
+
+== git ls-files: artefactos prohibidos ==
+Sin artefactos versionados (node_modules, dist, .venv, .pyc).
+
+== git status ==
+M docs/evidencias/logs/terminal_django_server.txt
+?? docs/GLAB-S14-YBESTARD-2026-02-COMPLETADO.docx
+?? docs/evidencias/logs/terminal_git.txt
+?? docs/evidencias/terminal_git.png
+
+== git ls-remote origin refs/heads/main (push confirmado) ==
+310a6b16a1260f01232ed4fc44489115fcd68713	refs/heads/main
+
+== git push origin HEAD ==
+git : To https://github.com/carlosjunco2025/lab10_Agrotrace.git
+
+En línea: 1 Carácter: 1
+
++ git push origin HEAD 2>&1 | Tee-Object -FilePath 'C:\Users\Tecsup\App ...
+
++ ~~~~~~~~~~~~~~~~~~~~~~~~~
+
+    + CategoryInfo          : NotSpecified: (To https://gith...0_Agrotrace.git:String) [], RemoteException
+
+    + FullyQualifiedErrorId : NativeCommandError
+
+ 
+
+   9625819..310a6b1  HEAD -> main
